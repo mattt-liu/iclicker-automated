@@ -8,8 +8,6 @@ from selenium.webdriver.common.keys import Keys
 url = "https://app.reef-education.com/#/login"
 browser = webdriver.Chrome("C:\\Users\mattl\Downloads\chromedriver.exe")
 
-chrome = webdriver.ChromeOptions.
-
 ## login info: username, then password on new line
 file = open("C:/Users/mattl/Documents/Python/automated/login.txt", "r")
 u = file.readline().strip() # username
