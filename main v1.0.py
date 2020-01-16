@@ -4,6 +4,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time
 
 url = "https://app.reef-education.com/#/login"
 browser = webdriver.Chrome("C:\\Users\mattl\Downloads\chromedriver.exe")
@@ -37,12 +38,31 @@ while (class_num != 1 and class_num != 2):
 
 geo_url = "https://app.reef-education.com/#/courses/78c967fd-4e34-418b-a350-adc65c68fa2c/tab/default"
 sse_url = "https://app.reef-education.com/#/courses/80ea7317-8320-4adc-ad7a-e949fb6eeeb6/tab/default"
-
 classes = [geo_url, sse_url]
 
 geo_xy = (43.0090, -81.2750)
 sse_xy = (43.0056, -81.2755)
-
-locations = [geo_xy, sse_xy]
+coords = [geo_xy, sse_xy]
 
 browser.get(classes[class_num-1])
+
+## click join
+while True:
+    try:
+        join_button = browser.find_element_by_id("btnJoin")
+        time.sleep(5)
+        break
+    except:
+        print("Could not join. Trying again...")
+        time.sleep(5)
+
+while True:
+    try:
+        join_button.click()
+        break
+    except:
+        pass
+
+print("Checked In!!")
+time.sleep(10)
+browser.quit()
