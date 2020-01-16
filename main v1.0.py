@@ -47,22 +47,25 @@ coords = [geo_xy, sse_xy]
 browser.get(classes[class_num-1])
 
 ## click join
+time.sleep(2)
 while True:
     try:
         join_button = browser.find_element_by_id("btnJoin")
-        time.sleep(5)
         break
     except:
         print("Could not join. Trying again...")
         time.sleep(5)
 
+time.sleep(2)
 while True:
     try:
         join_button.click()
         break
     except:
-        pass
+        print("Could not join. Trying again...")
+        time.sleep(5)
 
 print("Checked In!!")
-time.sleep(10)
+input("Press Enter to quit")
+
 browser.quit()
